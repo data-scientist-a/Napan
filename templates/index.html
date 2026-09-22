@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cake Shop</title>
+    <style>
+        .cake-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .cake {
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 200px;
+            text-align: center;
+        }
+        .cake img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Our Cakes</h1>
+    <div class="cake-grid">
+        {% for cake in cakes %}
+        <div class="cake">
+            <img src="{{ url_for('static', filename=cake.image) }}" alt="{{ cake.name }}">
+            <h2>{{ cake.name }}</h2>
+            <p>{{ cake.price }} MDL</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
+
